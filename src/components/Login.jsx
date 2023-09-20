@@ -1,9 +1,11 @@
 import axios from 'axios'
 import { useState } from 'react'
+import './Login.css'
 
 const Login = ({ setToken }) => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  const [error, setError] = useState(null)
 
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -17,10 +19,15 @@ const Login = ({ setToken }) => {
         password: password,
       })
       .then((res) => setToken(res.data.auth_token))
+      .catch((err) => {
+        console.log(err.response.data.non_field_errors)
+        setError(err.response.data.non_field_errors[0])
+      })
   }
 
   return (
     <div>
+      {error && <div className="error p-1">{error}</div>}
       <form onSubmit={handleSubmit}>
         <div className="username-input">
           <label htmlFor="name">Enter your username: </label>
@@ -30,6 +37,7 @@ const Login = ({ setToken }) => {
             id="name"
             required
             value={username}
+            onFocus={() => setError(null)}
             onChange={(e) => {
               setUsername(e.target.value)
             }}
@@ -43,6 +51,7 @@ const Login = ({ setToken }) => {
             id="password"
             required
             value={password}
+            onFocus={() => setError(null)}
             onChange={(e) => {
               setPassword(e.target.value)
             }}

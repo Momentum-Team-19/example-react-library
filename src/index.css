@@ -1,0 +1,8 @@
+:root {
+  --error-bg-color: #f9cdc7;
+  --error-txt-color: #e7200d;
+}
+
+.p-1 {
+  padding: 1rem;
+}
