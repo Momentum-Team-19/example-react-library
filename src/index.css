@@ -1,8 +1,18 @@
 :root {
   --error-bg-color: #f9cdc7;
   --error-txt-color: #e7200d;
+  --header-bg-color: #340068;
+  --header-bg-color-light: #a347ff;
+  --text-color-light: #fffcf9;
+  --btn-color-primary: #b1ede8;
+  --body-bg-color: #fffcf9;
+  --accent-pink: #ff6978;
 }
 
 .p-1 {
   padding: 1rem;
+}
+
+.app-container {
+  background-color: var(--body-bg-color);
 }
