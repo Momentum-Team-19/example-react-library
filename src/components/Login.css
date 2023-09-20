@@ -2,3 +2,7 @@
   background-color: var(--error-bg-color);
   color: var(--error-txt-color);
 }
+
+.btn-primary {
+  background-color: var(--btn-color-primary);
+}

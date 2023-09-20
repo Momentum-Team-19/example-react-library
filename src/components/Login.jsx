@@ -28,9 +28,9 @@ const Login = ({ setToken }) => {
   return (
     <div>
       {error && <div className="error p-1">{error}</div>}
-      <form onSubmit={handleSubmit}>
-        <div className="username-input">
-          <label htmlFor="name">Enter your username: </label>
+      <form className="pure-form" onSubmit={handleSubmit}>
+        <fieldset className="username-input">
+          <label htmlFor="name">username </label>
           <input
             type="text"
             name="name"
@@ -42,9 +42,9 @@ const Login = ({ setToken }) => {
               setUsername(e.target.value)
             }}
           />
-        </div>
-        <div className="password-input">
-          <label htmlFor="password">Enter your password: </label>
+        </fieldset>
+        <fieldset className="password-input">
+          <label htmlFor="password">password </label>
           <input
             type="password"
             name="password"
@@ -56,9 +56,13 @@ const Login = ({ setToken }) => {
               setPassword(e.target.value)
             }}
           />
-        </div>
+        </fieldset>
         <div className="form-example">
-          <input type="submit" value="Log In!" />
+          <input
+            type="submit"
+            value="Log In!"
+            className="pure-button pure-button-secondary"
+          />
         </div>
       </form>
     </div>
