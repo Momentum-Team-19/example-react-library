@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { getBooks } from './../requests'
+import { BookCard } from './BookCard'
 
 const BookList = ({ token }) => {
   const [bookData, setBookData] = useState([])
@@ -29,14 +30,12 @@ const BookList = ({ token }) => {
       <h2>Book List</h2>
       <div className="book-list container-box">
         {bookData.map((book) => (
-          <div className="card" key={book.id}>
-            <div className="content">
-              <p>
-                <h3>{book.title}</h3>
-                {book.featured && <span className="featured">Featured</span>}
-              </p>
-            </div>
-          </div>
+          <BookCard
+            title={book.title}
+            featured={book.featured}
+            id={book.id}
+            key={book.id}
+          />
         ))}
       </div>
     </div>

@@ -1,0 +1,21 @@
+.icon {
+  padding: 0.5rem;
+}
+
+.card {
+  margin: 1rem;
+  padding: 0.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 2px;
+}
+
+.card-content {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+  width: 80vw;
+}
+
+.featured-container {
+  font-style: italic;
+}

@@ -61,7 +61,7 @@ const Login = ({ setToken }) => {
           <input
             type="submit"
             value="Log In!"
-            className="pure-button pure-button-secondary"
+            className="pure-button btn-primary"
           />
         </div>
       </form>

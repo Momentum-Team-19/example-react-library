@@ -3,6 +3,6 @@
   color: var(--error-txt-color);
 }
 
-.btn-primary {
+.pure-button.btn-primary {
   background-color: var(--btn-color-primary);
 }
