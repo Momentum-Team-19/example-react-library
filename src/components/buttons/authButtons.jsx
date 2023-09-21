@@ -1,11 +1,12 @@
+import Login from '../Login'
 import './buttons.css'
 
-const LoginButton = ({ loginFn }) => {
+const LoginButton = ({ children }) => {
   return (
     <>
       <li className="pure-menu-item">
-        <a href="/" className="pure-menu-link" onClick={loginFn}>
-          Log In
+        <a href="/" className="pure-menu-link">
+          {children}
         </a>
       </li>
     </>

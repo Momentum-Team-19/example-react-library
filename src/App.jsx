@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import { Routes, Route } from 'react-router-dom'
+import useLocalStorageState from 'use-local-storage-state'
 import Login from './components/Login'
 import BookList from './components/BookList'
 import 'purecss/build/pure.css'
@@ -9,9 +11,11 @@ import {
   ButtonMenu,
   LogOutButton,
 } from './components/buttons/authButtons'
+import BookDetail from './components/BookDetail'
 
 function App() {
-  const [token, setToken] = useState('')
+  const [token, setToken] = useLocalStorageState('booksToken', '')
+  const loginButtonText = 'Log In'
 
   return (
     <>
@@ -20,7 +24,7 @@ function App() {
         <ButtonMenu>
           {!token ? (
             <>
-              <LoginButton />
+              <LoginButton>{loginButtonText}</LoginButton>
               <SignUpButton />
             </>
           ) : (
@@ -28,12 +32,18 @@ function App() {
           )}
         </ButtonMenu>
       </header>
+      <>
+        <Routes>
+          <Route path="/" element={<BookList token={token} />} />
+          <Route path="/books" element={<BookList token={token} />} />
+          <Route path="/books/:bookId" element={<BookDetail token={token} />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
+      </>
       <main className="pure-g main">
-        {token && <BookList token={token} />}
         {!token && <Login setToken={setToken} />}
       </main>
     </>
   )
 }
-
 export default App
