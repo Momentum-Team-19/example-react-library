@@ -33,8 +33,8 @@ const BookList = ({ token }) => {
           <BookCard
             title={book.title}
             featured={book.featured}
-            id={book.id}
-            key={book.id}
+            id={book.pk}
+            key={book.pk}
           />
         ))}
       </div>

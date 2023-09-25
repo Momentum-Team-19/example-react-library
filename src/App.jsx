@@ -32,15 +32,18 @@ function App() {
           )}
         </ButtonMenu>
       </header>
-      <>
-        <Routes>
-          <Route path="/" element={<BookList token={token} />} />
-          <Route path="/books" element={<BookList token={token} />} />
-          <Route path="/books/:bookId" element={<BookDetail token={token} />} />
-          <Route path="/login" element={<Login />} />
-        </Routes>
-      </>
       <main className="pure-g main">
+        <>
+          <Routes>
+            <Route path="/" element={<BookList token={token} />} />
+            <Route path="/books" element={<BookList token={token} />} />
+            <Route
+              path="/books/:bookId"
+              element={<BookDetail token={token} />}
+            />
+            <Route path="/login" element={<Login />} />
+          </Routes>
+        </>
         {!token && <Login setToken={setToken} />}
       </main>
     </>

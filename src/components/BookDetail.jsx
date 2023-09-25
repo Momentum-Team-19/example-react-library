@@ -1,8 +1,9 @@
 import { useParams } from 'react-router-dom'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import axios from 'axios'
 const BookDetail = ({ token }) => {
   const { bookId } = useParams()
+  const [bookData, setBookData] = useState([])
   console.log("You're looking for book id ", bookId)
 
   useEffect(() => {
@@ -12,10 +13,12 @@ const BookDetail = ({ token }) => {
           Authorization: `Token ${token}`,
         },
       })
-      .then((res) => console.log(res.data))
+      .then((res) => {
+        setBookData(res.data)
+      })
   }, [bookId, token])
 
-  return <h1 style={{ marginTop: '100px' }}> This is book detail</h1>
+  return <h1 style={{ marginTop: '100px' }}> Detail about {bookData.title} </h1>
 }
 
 export default BookDetail
